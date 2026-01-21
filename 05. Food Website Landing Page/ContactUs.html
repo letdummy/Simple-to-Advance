@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Contact Us — FoodieZaika</title>
+  <meta name="description" content="Contact FoodieZaika for orders, catering, or support." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Lobster&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --brand:#eda134; --text:#1b1b1b; --white:#fff; --muted:#6b6b6b; --shadow:0 10px 30px rgba(0,0,0,.12); --radius:1rem; --container:clamp(300px,92vw,1000px);
+    }
+    *{box-sizing:border-box}
+    body{margin:0;font-family:'Poppins',system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;color:var(--text);background:#fafafa;}
+
+    /* Header / nav */
+    header{background:#fff; position:sticky; top:0; z-index:10; box-shadow:0 1px 0 rgba(0,0,0,.06)}
+    .nav{width:var(--container); margin-inline:auto; padding:1rem 1.25rem; display:flex; align-items:center; justify-content:space-between;}
+    .logo{font-family:'Lobster',cursive; color:var(--brand); font-size:clamp(1.8rem,4vw,2.6rem); margin:0}
+    .nav__links{display:flex; gap:1rem;}
+    .nav__link{ text-decoration:none; text-transform:uppercase; font-weight:600; font-size:.95rem; color:#222; padding:.5rem .75rem; border-radius:.6rem; }
+    .nav__link:hover, .nav__link:focus-visible{ background:rgba(237,161,52,.12); outline:none; }
+
+    /* Page header */
+    .hero{ background:linear-gradient(to bottom,rgba(255,255,255,.92),rgba(255,255,255,.92)), url('images/bg.png') center/cover no-repeat; }
+    .hero__inner{ width:var(--container); margin-inline:auto; padding:3rem 1.25rem 2rem; }
+    .hero__eyebrow{ text-transform:uppercase; letter-spacing:.12em; color:var(--muted); font-weight:700; font-size:.85rem; }
+    .hero__title{ font-family:'Lobster',cursive; font-size:clamp(2rem,5.5vw,3.5rem); margin:.35rem 0 0; color:#1b1b1b; }
+
+    /* Form card */
+    .wrap{ width:var(--container); margin:2rem auto 4rem; padding:0 1.25rem; }
+    .card{ background:#fff; border-radius:var(--radius); box-shadow:var(--shadow); padding:1.25rem; }
+    .grid{ display:grid; gap:1rem; grid-template-columns:1fr 1fr; }
+    .grid-1{ grid-template-columns:1fr; }
+    @media (max-width: 800px){ .grid{ grid-template-columns:1fr; } }
+
+    label{ font-weight:600; display:block; margin-bottom:.35rem; }
+    .hint{ font-size:.85rem; color:var(--muted); }
+    input[type="text"], input[type="email"], input[type="tel"], textarea, select{
+      width:100%; padding:.9rem 1rem; border-radius:.7rem; border:1px solid #e6e6e6; background:#fff; font:inherit; outline:none; transition:border-color .15s ease, box-shadow .15s ease;
+    }
+    textarea{ min-height:140px; resize:vertical; }
+    input:focus, textarea:focus{ border-color:var(--brand); box-shadow:0 0 0 3px rgba(237,161,52,.2); }
+
+    .row{ display:flex; gap:.75rem; align-items:center; }
+    .btn{ appearance:none; border:0; background:var(--brand); color:#fff; padding:.9rem 1.25rem; border-radius:999px; font-weight:800; cursor:pointer; box-shadow:var(--shadow); }
+    .btn--ghost{ background:#fff; color:#222; border:2px solid #eee; }
+
+    .status{ margin-top:1rem; font-weight:600; }
+    .status--ok{ color:#256029; }
+    .status--err{ color:#8a1f11; }
+
+    /* Utility */
+    .visually-hidden{ position:absolute !important; height:1px; width:1px; overflow:hidden; clip:rect(1px, 1px, 1px, 1px); white-space:nowrap; }
+  </style>
+</head>
+<body>
+  <header>
+    <nav class="nav" aria-label="Primary">
+      <a class="logo" href="index.html">FoodieZaika</a>
+      <div class="nav__links">
+        <a class="nav__link" href="index.html#home">Home</a>
+        <a class="nav__link" href="index.html#order">Order</a>
+        <a class="nav__link" href="index.html#menu">Menu</a>
+              </div>
+    </nav>
+  </header>
+
+  <section class="hero" id="contact">
+    <div class="hero__inner">
+      <div class="hero__eyebrow">Get in touch</div>
+      <h1 class="hero__title">Contact Us</h1>
+      <p>Questions, catering, feedback—send it. We actually read these.</p>
+    </div>
+  </section>
+
+  <main class="wrap" role="main">
+    <div class="card">
+         <form id="contactForm" action="mailto:hello@foodiezaika.example" method="post" enctype="text/plain" novalidate>
+        <div class="grid">
+          <div>
+            <label for="name">Full name</label>
+            <input id="name" name="name" type="text" autocomplete="name" required placeholder="John Smith" />
+          </div>
+          <div>
+            <label for="email">Email</label>
+            <input id="email" name="email" type="email" autocomplete="email" required placeholder="you@example.com" />
+          </div>
+          <div>
+            <label for="phone">Phone <span class="hint">(optional)</span></label>
+            <input id="phone" name="phone" type="tel" inputmode="tel" placeholder="(555) 555-1234" />
+          </div>
+          <div>
+            <label for="topic">Topic</label>
+            <select id="topic" name="topic" required>
+              <option value="" disabled selected>Choose one…</option>
+              <option>Catering</option>
+              <option>Order issue</option>
+              <option>Partnership</option>
+              <option>General question</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="grid grid-1" style="margin-top:1rem;">
+          <div>
+            <label for="message">Message</label>
+            <textarea id="message" name="message" required placeholder="Tell us what's up…"></textarea>
+          </div>
+        </div>
+
+        <div class="visually-hidden" aria-hidden="true">
+          <label for="company">Company</label>
+          <input id="company" name="company" type="text" tabindex="-1" autocomplete="off" />
+        </div>
+
+        <div class="row" style="margin-top:1rem;">
+          <button class="btn" type="submit">Send message</button>
+          <button class="btn btn--ghost" type="reset">Reset</button>
+        </div>
+        <p id="status" class="status" role="status" aria-live="polite"></p>
+      </form>
+
+      <hr style="margin:2rem 0; border:0; border-top:1px solid #eee;" />
+      <section aria-labelledby="alt">
+        <h2 id="alt" style="margin:0 0 .5rem; font-size:1.1rem;">Prefer email or phone?</h2>
+        <p>Email: <a href="mailto:hello@foodiezaika.example">hello@foodiezaika.example</a> · Phone: <a href="tel:+15555551234">(555) 555‑1234</a></p>
+      </section>
+
+      
+    </div>
+  </main>
+
+  <script>
+ 
+  (function(){
+    const form = document.getElementById('contactForm');
+    const status = document.getElementById('status');
+
+    form.addEventListener('submit', function(e){
+      
+      const honeypot = document.getElementById('company');
+      if (honeypot.value) { e.preventDefault(); status.textContent = 'Blocked as spam.'; status.className = 'status status--err'; return; }
+
+   
+      if (!form.checkValidity()) {
+        e.preventDefault();
+        status.textContent = 'Fix the highlighted fields.';
+        status.className = 'status status--err';
+        form.reportValidity();
+      } else {
+        
+        status.textContent = 'Opening your email client…';
+        status.className = 'status';
+      }
+    });
+  })();
+  </script>
+</body>
+</html>
